@@ -1,6 +1,6 @@
-import { NextRequest, NextResponse } from "next/server";
-import { decrypt, updateCookies } from "./libs/session";
-import { cookies } from "next/headers";
+import { NextRequest } from "next/server";
+import {  updateCookies } from "./libs/session";
+// import { cookies } from "next/headers";
 import { createI18nMiddleware } from "next-international/middleware";
 export default async function middleware(request: NextRequest) {
     // const authRoutes = '/auth'
