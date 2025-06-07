@@ -29,7 +29,7 @@ export default function BannerHome() {
     return (
         <div className='banner relative z-0'>
             <Swiper
-                className='h-screen lg:max-h-[750px] max-h-[500px] w-full'
+                className='h-screen lg:max-h-[700px] md:max-h-[500px] max-h-[400px] w-full'
                 slidesPerView={1}
                 spaceBetween={40}
                 modules={[Pagination, EffectFade, Autoplay]}
@@ -61,14 +61,14 @@ export default function BannerHome() {
             <div className="wave absolute bottom-0 z-10 h-auto w-full overflow-hidden">
                 <svg
                     viewBox="0 0 100 15"
-                    className="wave wave-top w-full h-[200px]"
+                    className="wave wave-top w-full h-[150px]"
                     preserveAspectRatio="none"
                     xmlns="http://www.w3.org/2000/svg"
                 >
                     <defs>
                         <linearGradient id="waveGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                            <stop offset="0%" style={{ stopColor: `${themeStore.theme === 'dark' ? 'black' : 'white'}`, stopOpacity: .6 }} />
-                            <stop offset="100%" style={{ stopColor: `${themeStore.theme === 'dark' ? 'black' : 'white'}`, stopOpacity: 1 }} />
+                            <stop offset="0%" style={{ stopColor: `${themeStore.theme === 'dark' ? 'black' : 'oklch(92.8% .006 264.531)'}`,  }} />
+                            <stop offset="100%" style={{ stopColor: `${themeStore.theme === 'dark' ? 'black' : 'oklch(92.8% .006 264.531)'}`, }} />
                         </linearGradient>
                     </defs>
                     <path
@@ -81,9 +81,7 @@ export default function BannerHome() {
                             dur="5s"
                             repeatCount="indefinite"
                             values="
-                                M 0 20 V 8 Q 25 5 55 8 T 100 8 V 20 Z;
-                                M 0 20 V 8 Q 25 11 55 8 T 100 8 V 20 Z;
-                                M 0 20 V 8 Q 25 5 55 8 T 100 8 V 20 Z"
+                                M 0 20 V 8 Q 25 5 55 8 T 100 8 V 20 Z;"
                         />
                     </path>
                 </svg>

@@ -15,7 +15,7 @@ export default function BannerItem({ bannerItem }: { bannerItem?: Banner, }) {
                     <Image src={bannerItem.bgBanner} alt="banner" className="bg-img w-full h-full object-cover" width={1920} height={732} />
                 }
             </div>
-            <div className="container max-w-[1620px] mx-auto px-4 flex justify-between items-center py-20">
+            <div className="container max-w-[1620px] mx-auto px-4 flex justify-between items-center md:py-20 py-15">
                 <div className="left-side max-w-xl flex flex-col gap-4 items-start">
                     <h1 className="main-title 2xl:text-6xl xl:text-5xl lg:text-4xl md:text-3xl text-2xl text-white"
                     >

@@ -51,7 +51,24 @@ export default {
         "Kitchen": "Kitchen",
         "Skincare": "Skincare",
         "Makeup": "Makeup",
-        "Perfumes": "Perfumes"
+        "Perfumes": "Perfumes",
+        'Clothing': 'Clothing',
+        'Jewelry': 'Jewelry',
+        'Health': 'Health',
+        'Sports': 'Sports',
+        'Travel': 'Travel',
+        'Books': 'Books',
+        'Music': 'Music',
+        'Movies': 'Movies',
+        "Tops": "Tops",
+        "Dresses": "Dresses", 
+        "Pants": "Pants",
+        "Denim": "Denim",
+        "Sweaters": "Sweaters",
+        "T-Shirts": "T-Shirts",
+        "Jackets": "Jackets",
+        "Activewear": "Activewear",
+        "Browse All": "Browse All",
     }
 
 } as const

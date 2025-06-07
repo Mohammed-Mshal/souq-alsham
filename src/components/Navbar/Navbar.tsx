@@ -25,131 +25,63 @@ import {
     TabPanels,
 } from '@headlessui/react'
 import { Bars3Icon, MagnifyingGlassIcon, ShoppingBagIcon, XMarkIcon } from '@heroicons/react/24/outline'
-const navigation = {
-    categories: [
-        {
-            id: 'women',
-            name: 'Women',
-            featured: [
-                {
-                    name: 'New Arrivals',
-                    href: '#',
-                    imageSrc: '/mega-menu-category-01.jpg',
-                    imageAlt: 'Models sitting back to back, wearing Basic Tee in black and bone.',
-                },
-                {
-                    name: 'Basic Tees',
-                    href: '#',
-                    imageSrc: '/mega-menu-category-02.jpg',
-                    imageAlt: 'Product'
-                },
-            ],
-            sections: [
-                {
-                    id: 'clothing',
-                    name: 'Clothing',
-                    items: [
-                        { name: 'Tops', href: '#' },
-                        { name: 'Dresses', href: '#' },
-                        { name: 'Pants', href: '#' },
-                        { name: 'Denim', href: '#' },
-                        { name: 'Sweaters', href: '#' },
-                        { name: 'T-Shirts', href: '#' },
-                        { name: 'Jackets', href: '#' },
-                        { name: 'Activewear', href: '#' },
-                        { name: 'Browse All', href: '#' },
-                    ],
-                },
-                {
-                    id: 'accessories',
-                    name: 'Accessories',
-                    items: [
-                        { name: 'Watches', href: '#' },
-                        { name: 'Wallets', href: '#' },
-                        { name: 'Bags', href: '#' },
-                        { name: 'Sunglasses', href: '#' },
-                        { name: 'Hats', href: '#' },
-                        { name: 'Belts', href: '#' },
-                    ],
-                },
-                {
-                    id: 'brands',
-                    name: 'Brands',
-                    items: [
-                        { name: 'Full Nelson', href: '#' },
-                        { name: 'My Way', href: '#' },
-                        { name: 'Re-Arranged', href: '#' },
-                        { name: 'Counterfeit', href: '#' },
-                        { name: 'Significant Other', href: '#' },
-                    ],
-                },
-            ],
-        },
-        {
-            id: 'men',
-            name: 'Men',
-            featured: [
-                {
-                    name: 'New Arrivals',
-                    href: '#',
-                    imageSrc:
-                        '/product-page-04-detail-product-shot-01.jpg',
-                    imageAlt: 'Drawstring top with elastic loop closure and textured interior padding.',
-                },
-                {
-                    name: 'Artwork Tees',
-                    href: '#',
-                    imageSrc: '/category-page-02-image-card-06.jpg',
-                    imageAlt:
-                        'Three shirts in gray, white, and blue arranged on table with same line drawing of hands and shapes overlapping on front of shirt.',
-                },
-            ],
-            sections: [
-                {
-                    id: 'clothing',
-                    name: 'Clothing',
-                    items: [
-                        { name: 'Tops', href: '#' },
-                        { name: 'Pants', href: '#' },
-                        { name: 'Sweaters', href: '#' },
-                        { name: 'T-Shirts', href: '#' },
-                        { name: 'Jackets', href: '#' },
-                        { name: 'Activewear', href: '#' },
-                        { name: 'Browse All', href: '#' },
-                    ],
-                },
-                {
-                    id: 'accessories',
-                    name: 'Accessories',
-                    items: [
-                        { name: 'Watches', href: '#' },
-                        { name: 'Wallets', href: '#' },
-                        { name: 'Bags', href: '#' },
-                        { name: 'Sunglasses', href: '#' },
-                        { name: 'Hats', href: '#' },
-                        { name: 'Belts', href: '#' },
-                    ],
-                },
-                {
-                    id: 'brands',
-                    name: 'Brands',
-                    items: [
-                        { name: 'Re-Arranged', href: '#' },
-                        { name: 'Counterfeit', href: '#' },
-                        { name: 'Full Nelson', href: '#' },
-                        { name: 'My Way', href: '#' },
-                    ],
-                },
-            ],
-        },
-    ],
-    pages: [
-        { name: 'Company', href: '#' },
-        { name: 'Stores', href: '#' },
-    ],
-}
+import { Swiper, SwiperSlide } from 'swiper/react'
 export default function Navbar() {
     const t = useI18n()
+    const navigation = {
+        categories: [
+            {
+                id: 'women',
+                name: 'Women',
+                featured: [
+                    {
+                        name: 'New Arrivals',
+                        href: '#',
+                        imageSrc: '/mega-menu-category-01.jpg',
+                        imageAlt: 'Models sitting back to back, wearing Basic Tee in black and bone.',
+                    },
+                    {
+                        name: 'Basic Tees',
+                        href: '#',
+                        imageSrc: '/mega-menu-category-02.jpg',
+                        imageAlt: 'Product'
+                    },
+                ],
+                sections: [
+                    {
+                        id: 'clothing',
+                        name: t('categories.Clothing'),
+                        items: [
+                            { name: t('categories.Tops'), href: '#' },
+                            { name: t('categories.Dresses'), href: '#' },
+                            { name: t('categories.Pants'), href: '#' },
+                            { name: t('categories.Denim'), href: '#' },
+                            { name: t('categories.Sweaters'), href: '#' },
+                            { name: t('categories.T-Shirts'), href: '#' },
+                            { name: t('categories.Jackets'), href: '#' },
+                            { name: t('categories.Activewear'), href: '#' },
+                            { name: t('categories.Browse All'), href: '#' },
+                        ],
+                    },
+                    {
+                        id: 'accessories',
+                        name: t('categories.Accessories'),
+                        items: [
+                            { name: t('categories.Watches'), href: '#' },
+                            { name: t('categories.Bags'), href: '#' },
+                            { name: t('categories.Beauty'), href: '#' },
+                            { name: t('categories.Skincare'), href: '#' },
+
+                        ],
+                    },
+                ],
+            },
+        ],
+        pages: [
+            { name: 'Company', href: '#' },
+            { name: 'Stores', href: '#' },
+        ],
+    }
     const locale = useCurrentLocale()
     const changeLocale = useChangeLocale()
     // const { menuState, TOGGLE_MENU } = stores.MenuStore(store => store)
@@ -171,7 +103,7 @@ export default function Navbar() {
                         <div className="flex px-4 pt-5 pb-2 justify-between">
                             <Button
                                 onClick={() => changeLocale(locale === 'en' ? 'ar' : 'en')}
-                                className="flex items-center gap-2 px-4 py-2 cursor-pointer text-sm font-medium text-gray-700 dark:text-gray-200 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors"
+                                className="flex md:hidden items-center gap-2 px-4 py-2 cursor-pointer text-sm font-medium text-gray-700 dark:text-gray-200 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors"
                             >
                                 {locale === 'en' ? t('buttons.Arabic') : t('buttons.English')}
                                 <GrLanguage className="size-4" />
@@ -189,14 +121,22 @@ export default function Navbar() {
                         <TabGroup className="mt-2">
                             <div className="border-b border-gray-200 dark:border-gray-700/50">
                                 <TabList className="-mb-px flex space-x-8 px-4">
-                                    {navigation.categories.map((category) => (
-                                        <Tab
-                                            key={category.name}
-                                            className="flex-1 border-b-2 border-transparent px-1 py-4 text-base font-medium whitespace-nowrap text-gray-700 dark:text-gray-200/90 data-selected:border-indigo-600 data-selected:text-indigo-500 dark:data-selected:text-indigo-400/90 transition-colors"
-                                        >
-                                            {category.name}
-                                        </Tab>
-                                    ))}
+                                    <Swiper
+                                        className='w-full'
+                                        slidesPerView={3}
+                                        speed={800}
+                                    >
+                                        {navigation.categories.map((category) => (
+                                            <SwiperSlide
+                                                key={category.name}>
+                                                <Tab
+                                                    className="border-b-2 border-transparent px-1 py-4 text-base font-medium whitespace-nowrap text-gray-700 dark:text-gray-200/90 data-selected:border-indigo-600 data-selected:text-indigo-500 dark:data-selected:text-indigo-400/90 transition-colors"
+                                                >
+                                                    {category.name}
+                                                </Tab>
+                                            </SwiperSlide>
+                                        ))}
+                                    </Swiper>
                                 </TabList>
                             </div>
                             <TabPanels as={Fragment}>
@@ -255,33 +195,6 @@ export default function Navbar() {
                                     </Link>
                                 </div>
                             ))}
-                        </div>
-
-                        <div className="space-y-6 border-t border-gray-200 dark:border-gray-700 px-4 py-6">
-                            <div className="flow-root">
-                                <Link href="#" className="-m-2 block p-2 font-medium text-gray-900 dark:text-gray-100">
-                                    Sign in
-                                </Link>
-                            </div>
-                            <div className="flow-root">
-                                <Link href="#" className="-m-2 block p-2 font-medium text-gray-900 dark:text-gray-100">
-                                    Create account
-                                </Link>
-                            </div>
-                        </div>
-
-                        <div className="border-t border-gray-200 dark:border-gray-700 px-4 py-6">
-                            <Link href="#" className="-m-2 flex items-center p-2">
-                                <Image
-                                    width={40}
-                                    height={40}
-                                    alt=""
-                                    src={Logo}
-                                    className="block h-auto w-5 shrink-0"
-                                />
-                                <span className="ml-3 block text-base font-medium text-gray-900 dark:text-gray-100100">CAD</span>
-                                <span className="sr-only">, change currency</span>
-                            </Link>
                         </div>
                     </DialogPanel>
                 </div>
@@ -353,7 +266,7 @@ export default function Navbar() {
                                                                             {item.name}
                                                                         </Link>
                                                                         <p aria-hidden="true" className="mt-1 text-gray-500 dark:text-gray-400">
-                                                                            Shop now
+                                                                            {t('buttons.shop_now')}
                                                                         </p>
                                                                     </div>
                                                                 ))}
@@ -400,32 +313,10 @@ export default function Navbar() {
                             </PopoverGroup>
 
                             <div className="flex items-center">
-                                <div className="hidden lg:flex lg:flex-1 lg:items-center lg:justify-end lg:space-x-6">
-                                    <Link href="#" className="text-sm font-medium text-gray-700 dark:text-gray-200 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">
-                                        Sign in
-                                    </Link>
-                                    <span aria-hidden="true" className="h-6 w-px bg-gray-200 dark:bg-gray-700" />
-                                    <Link href="#" className="text-sm font-medium text-gray-700 dark:text-gray-200 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">
-                                        Create account
-                                    </Link>
-                                </div>
 
-                                <div className="hidden lg:ml-8 lg:flex">
-                                    <Link href="#" className="flex items-center text-gray-700 dark:text-gray-200 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">
-                                        <Image
-                                            width={40}
-                                            height={40}
-                                            alt=""
-                                            src={Logo}
-                                            className="block h-auto w-5 shrink-0 dark:invert"
-                                        />
-                                        <span className="ml-3 block text-sm font-medium">CAD</span>
-                                        <span className="sr-only">, change currency</span>
-                                    </Link>
-                                </div>
 
                                 {/* Search */}
-                                <div className="flex lg:ml-6">
+                                <div className="flex">
                                     <Link href="#" className="p-2 text-gray-400 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">
                                         <span className="sr-only">Search</span>
                                         <MagnifyingGlassIcon aria-hidden="true" className="size-6" />
@@ -434,13 +325,13 @@ export default function Navbar() {
 
                                 {/* Cart */}
 
-                                <div className="ml-4 flow-root lg:ml-6">
-                                    <Link href="#" className="group -m-2 flex items-center p-2">
+                                <div className="flow-root">
+                                    <Link href="#" className="group flex items-center">
                                         <ShoppingBagIcon
                                             aria-hidden="true"
                                             className="size-6 shrink-0 text-gray-400 dark:text-gray-300 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors"
                                         />
-                                        <span className="ml-2 text-sm font-medium text-gray-700 dark:text-gray-200 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors">0</span>
+                                        <span className="text-sm font-medium text-gray-700 dark:text-gray-200 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors">0</span>
                                         <span className="sr-only">items in cart, view bag</span>
                                     </Link>
                                 </div>

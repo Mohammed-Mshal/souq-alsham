@@ -50,7 +50,24 @@ export default {
         "Kitchen": "المطبخ",
         "Skincare": "العناية بالبشرة",
         "Makeup": "المكياج",
-        "Perfumes": "العطور"
+        "Perfumes": "العطور",
+        'Clothing': 'ملابس',
+        'Jewelry': 'الجوهرات',
+        'Health': 'الصحة',
+        'Sports': 'الرياضة',
+        'Travel': 'الرحلات',
+        'Books': 'الكتب',
+        'Music': 'الإلكترونيات',
+        'Movies': 'الافلام',    
+        "Tops": "البلوزات",
+        "Dresses": "الفساتين",
+        "Pants": "البناطيل",
+        "Denim": "الجينز",
+        "Sweaters": "الكنزات",
+        "T-Shirts": "القمصان",
+        "Jackets": "الجواكيت",
+        "Activewear": "ملابس رياضية",
+        "Browse All": "عرض الكل",
     }
 
 } as const
