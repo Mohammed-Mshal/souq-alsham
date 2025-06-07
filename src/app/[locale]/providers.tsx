@@ -1,22 +1,40 @@
 // app/providers.tsx
-'use client'
 import { MenuStoreProvider } from '@/providers/MenuProvider';
 import { I18nProviderClient } from '@/locales/client'
 import { ThemeProvider } from '@/providers/ThemeProvider';
-export function Providers({
-  children, locale,
+import { AuthProvider } from '@/providers/AuthProvider';
+import { verifySession } from '@/libs/session';
+import { cache } from 'react';
+
+// Cache the getInfo function to avoid unnecessary recalculations
+const getInfo = cache(async () => {
+  return {
+    user: null
+  }
+});
+
+export async function Providers({
+  children,
+  locale,
 }: Readonly<{
   children: React.ReactNode,
   locale: string,
-}>
-) {
+}>) {
+  // Fetch session and user info in parallel for better performance
+  const [userInfo] = await Promise.all([
+    getInfo(),
+    verifySession(),
+  ]);
+
   return (
-    <ThemeProvider>
-      <I18nProviderClient locale={locale}>
-        <MenuStoreProvider>
-          {children}
-        </MenuStoreProvider>
-      </I18nProviderClient>
-    </ThemeProvider>
-  )
+    <AuthProvider initialSession={userInfo}>
+      <ThemeProvider>
+        <I18nProviderClient locale={locale}>
+          <MenuStoreProvider>
+            {children}
+          </MenuStoreProvider>
+        </I18nProviderClient>
+      </ThemeProvider>
+    </AuthProvider>
+  );
 }

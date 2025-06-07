@@ -1,15 +1,32 @@
 'use client'
 import ToggleTheme from "@/components/ToggleTheme"
-import { ReactNode, useState, createContext, useEffect } from "react"
+import { ReactNode, useState, createContext, useContext, useEffect } from "react"
+type ThemeContextType = {
+    theme: 'dark' | 'light',
+    toggleTheme: (newTheme: 'dark' | 'light') => void
+}
 
-export const ThemeContext = createContext<'light' | 'dark'>('light')
+export const ThemeContext = createContext<ThemeContextType>({
+    theme: 'light',
+    toggleTheme: () => { }
+})
+
+export const useTheme = () => {
+    const context = useContext(ThemeContext)
+    if (!context) {
+        throw new Error('useTheme must be used within a ThemeProvider')
+    }
+    return context
+}
 
 export const ThemeProvider = ({ children }: { children: ReactNode }) => {
-
     const [theme, setTheme] = useState<'light' | 'dark'>('light')
-    const toggleTheme = () => {
-        setTheme((prev) => prev === 'dark' ? 'light' : 'dark')
+
+    const toggleTheme = (newTheme: 'dark' | 'light') => {
+        setTheme(newTheme)
+        localStorage.setItem('theme-souq-alsham', newTheme)
     }
+
     useEffect(() => {
         const initialTheme = () => {
             if (localStorage.getItem('theme-souq-alsham') === 'light') {
@@ -20,11 +37,9 @@ export const ThemeProvider = ({ children }: { children: ReactNode }) => {
         }
         initialTheme()
     }, [])
-    useEffect(() => {
-        localStorage.setItem('theme-souq-alsham', theme)
-    }, [theme])
+
     return (
-        <ThemeContext.Provider value={theme}>
+        <ThemeContext.Provider value={{ theme, toggleTheme }}>
             <div className="theme-page bg-gray-200 dark:bg-black/90" data-theme={theme}>
                 {children}
                 <ToggleTheme toggleTheme={toggleTheme} theme={theme} />

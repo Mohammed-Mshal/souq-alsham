@@ -6,6 +6,12 @@ export default {
         "Dashboard": "لوحة التحكم",
         "Profile": "الملف الشخصي",
         "Settings": "الاعدادات",
+        'wishlist': 'قائمة المفضلة',
+        'cart': 'السلة',
+        'shop': 'تسوق',
+        'checkout': 'الدفع',
+        'faqs': 'الأسئلة الشائعة',
+        'Categories': 'التصنيفات',
     },
     buttons: {
         "Language": "اللغة",
@@ -16,9 +22,35 @@ export default {
         "Logout": "تسجيل خروج",
         "Change Password": "تغيير كلمة المرور",
         "Change Language": "تغيير اللغة",
+        "shop_now": 'تسوق الأن'
+    },
+    profileMenu: {
+        'my_profile': 'الملف الشخصي',
+        'settings': 'الأعدادات',
+        'signout': 'تسجيل الخروج',
+    },
+    banner: {
+        'New_Products': 'المنتجات الجديدة',
     },
     aside: {
 
     },
+    categories: {
+        'Electronics': 'الإلكترونيات',
+        'Fashion': 'الأزياء',
+        "Home": 'المنزل',
+        "Beauty": "الجمال",
+        "Phones": "الهواتف",
+        "Computers": "الحواسيب",
+        "Accessories": "الإكسسوارات",
+        "Shoes": "الأحذية",
+        "Bags": "الحقائب",
+        "Watches": "الساعات",
+        "Furniture": "الأثاث",
+        "Kitchen": "المطبخ",
+        "Skincare": "العناية بالبشرة",
+        "Makeup": "المكياج",
+        "Perfumes": "العطور"
+    }
 
 } as const

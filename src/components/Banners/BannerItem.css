@@ -1,0 +1,114 @@
+.banner .swiper .swiper-slide .main-title {
+  opacity: 0;
+  transform: perspective(1000px) rotateX(30deg) translateY(50px);
+  transition: transform 0.8s cubic-bezier(0.34, 1.56, 0.64, 1),
+    opacity 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+  will-change: transform, opacity;
+  backface-visibility: hidden;
+}
+
+.banner .swiper .swiper-slide.swiper-slide-next .main-title {
+  transform: perspective(1000px) rotateX(35deg) translateY(120px) scale(0.95);
+  filter: blur(4px);
+  transition-delay: 0.1s;
+}
+
+.banner .swiper .swiper-slide.swiper-slide-prev .main-title {
+  transform: perspective(1000px) rotateX(-35deg) translateY(-120px) scale(0.95);
+  filter: blur(4px);
+  transition-delay: 0.1s;
+}
+
+:is(html[dir="ltr"], html[dir="rtl"])
+  .banner
+  .swiper
+  .swiper-slide.swiper-slide-active
+  .main-title {
+  transform: perspective(1000px) rotateX(0) translateY(0) scale(1);
+  opacity: 1;
+  filter: blur(0);
+  transition-delay: 0.3s;
+}
+
+.banner .swiper .swiper-slide .main-desc {
+  opacity: 0;
+  transform: perspective(1000px) rotateX(30deg) translateY(60px);
+  transition: transform 1s cubic-bezier(0.34, 1.56, 0.64, 1),
+    opacity 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+  will-change: transform, opacity;
+  backface-visibility: hidden;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.banner .swiper .swiper-slide.swiper-slide-next .main-desc {
+  transform: perspective(1000px) rotateX(35deg) translateY(140px) scale(0.9);
+  filter: blur(5px);
+  opacity: 0.2;
+  transition-delay: 0.2s;
+}
+
+.banner .swiper .swiper-slide.swiper-slide-prev .main-desc {
+  transform: perspective(1000px) rotateX(-35deg) translateY(-140px) scale(0.9);
+  filter: blur(5px);
+  opacity: 0.2;
+  transition-delay: 0.2s;
+}
+
+:is(html[dir="ltr"], html[dir="rtl"])
+  .banner
+  .swiper
+  .swiper-slide.swiper-slide-active
+  .main-desc {
+  transform: perspective(1000px) rotateX(0) translateY(0) scale(1);
+  opacity: 1;
+  filter: blur(0);
+  transition: all 1s cubic-bezier(0.34, 1.56, 0.64, 1);
+  transition-delay: 0.5s;
+}
+
+.banner .swiper .swiper-slide .main-btn {
+  opacity: 0;
+  transform: perspective(1000px) rotateX(30deg) translateY(70px);
+  transition: all 1.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+  will-change: transform, opacity;
+  backface-visibility: hidden;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+}
+
+.banner .swiper .swiper-slide.swiper-slide-next .main-btn {
+  transform: perspective(1000px) rotateX(35deg) translateY(160px) scale(0.85);
+  filter: blur(6px);
+  opacity: 0.15;
+  transition-delay: 0.3s;
+}
+
+.banner .swiper .swiper-slide.swiper-slide-prev .main-btn {
+  transform: perspective(1000px) rotateX(-35deg) translateY(-160px) scale(0.85);
+  filter: blur(6px);
+  opacity: 0.15;
+  transition-delay: 0.3s;
+}
+
+:is(html[dir="ltr"], html[dir="rtl"])
+  .banner
+  .swiper
+  .swiper-slide.swiper-slide-active
+  .main-btn {
+  transform: perspective(1000px) rotateX(0) translateY(0) scale(1);
+  opacity: 1;
+  filter: blur(0);
+  transition: all 1.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+  transition-delay: 0.7s;
+}
+
+.banner .swiper .swiper-slide.swiper-slide-active .main-btn:hover {
+  transform: perspective(1000px) translateY(-5px) scale(1.02);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.banner .swiper .swiper-slide.swiper-slide-active .main-btn:active {
+  transform: perspective(1000px) translateY(2px) scale(0.98);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
