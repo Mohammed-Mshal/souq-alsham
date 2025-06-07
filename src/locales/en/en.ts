@@ -61,7 +61,7 @@ export default {
         'Music': 'Music',
         'Movies': 'Movies',
         "Tops": "Tops",
-        "Dresses": "Dresses", 
+        "Dresses": "Dresses",
         "Pants": "Pants",
         "Denim": "Denim",
         "Sweaters": "Sweaters",
@@ -69,6 +69,10 @@ export default {
         "Jackets": "Jackets",
         "Activewear": "Activewear",
         "Browse All": "Browse All",
+    },
+    title_sections: {
+        'shop_by_category': 'Shop by Category'
     }
+
 
 } as const

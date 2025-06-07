@@ -68,6 +68,9 @@ export default {
         "Jackets": "الجواكيت",
         "Activewear": "ملابس رياضية",
         "Browse All": "عرض الكل",
+    },
+    title_sections:{
+        'shop_by_category':'التسوق حسب الفئة'
     }
 
 } as const

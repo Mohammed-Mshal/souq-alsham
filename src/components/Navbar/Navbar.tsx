@@ -88,7 +88,7 @@ export default function Navbar() {
     const authState = useAuthStore(state => state.user)
     const [open, setOpen] = useState(false)
     return (
-        <div className="bg-white dark:bg-black">
+        <div className="bg-white dark:bg-black sticky md:top-7 top-0 z-10">
             {/* Mobile menu */}
             <Dialog open={open} onClose={setOpen} className="relative z-50 lg:hidden">
                 <DialogBackdrop
@@ -199,7 +199,7 @@ export default function Navbar() {
                     </DialogPanel>
                 </div>
             </Dialog>
-            <header className="relative bg-white dark:bg-black dark:border-b dark:border-indigo-900">
+            <header className="relative bg-white dark:bg-black dark:border-b dark:border-indigo-900 ">
                 <p className="flex h-10 items-center justify-center bg-indigo-600 dark:bg-indigo-800 px-4 text-sm font-medium text-white sm:px-6 lg:px-8">
                     Get free delivery on orders over $100
                 </p>
