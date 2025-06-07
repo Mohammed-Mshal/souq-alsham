@@ -7,31 +7,26 @@ const categories = [
         id: 1,
         thumbnail: '/category.jpg',
         link: '/categories/men',
-        bg: ''
     },
     {
         id: 2,
         thumbnail: '/category2.png',
         link: '/categories/women',
-        bg: ''
     },
     {
         id: 3,
         thumbnail: '/category3.jpg',
         link: '/categories/beauty',
-        bg: ''
     },
     {
         id: 4,
         thumbnail: '/category4.png',
         link: '/categories/discounts',
-        bg: '#e7284d'
     },
     {
         id: 5,
         thumbnail: '/category5.png',
         link: '/categories/top-category',
-        bg: ''
     },
 ]
 export default async function CategoryPreview() {
@@ -44,7 +39,7 @@ export default async function CategoryPreview() {
 
                     {
                         categories.map((category) => {
-                            return <CategoryItem key={category.id} link={category.link} thumbnail={category.thumbnail} bg={category.bg} />
+                            return <CategoryItem key={category.id} link={category.link} thumbnail={category.thumbnail} />
                         })
                     }
                 </div>
