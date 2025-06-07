@@ -38,7 +38,7 @@ export default async function CategoryPreview() {
     const t = await getI18n()
     return (
         <div className='categories'>
-            <div className="container mx-auto max-w-[1620px] flex flex-col gap-4 py-12">
+            <div className="container mx-auto max-w-[1620px] px-4 flex flex-col gap-4 py-12">
                 <TitleSection title={t('title_sections.shop_by_category')} />
                 <div className="list-categories grid lg:grid-cols-4 md:grid-cols-3 grid-cols-2 gap-7">
 
