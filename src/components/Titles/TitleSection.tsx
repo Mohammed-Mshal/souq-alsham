@@ -7,7 +7,7 @@ interface TitleSectionProps {
 
 export default function TitleSection({ title, className = '' }: TitleSectionProps) {
     return (
-        <h2 className={`text-2xl md:text-3xl lg:text-4xl tracking-tight text-gray-900 dark:text-white mb-6 transition-colors duration-200 font-bold ${className}`}>
+        <h2 className={`text-2xl md:text-3xl lg:text-4xl tracking-tight text-gray-900 dark:text-white transition-colors duration-200 font-bold ${className}`}>
             {title}
         </h2>
     )

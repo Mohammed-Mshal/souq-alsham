@@ -1,8 +1,10 @@
 import React from 'react'
 import { Providers } from './providers';
 import { Cairo, Raleway } from "next/font/google";
+import 'swiper/css/bundle';
 import "./globals.css";
 import { Metadata } from 'next';
+import { updateLocale } from '@/app/api/api_services';
 
 const raleway = Raleway({
   variable: '--font-raleway-sans',
@@ -27,7 +29,7 @@ export default async function RootLayout({
 }>) {
 
   const { locale } = await params
-
+  updateLocale(locale)
   return (
     <html lang={locale} dir={locale === 'ar' ? 'rtl' : 'ltr'} data-theme={''}>
       <body

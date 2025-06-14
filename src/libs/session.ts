@@ -1,7 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { jwtVerify, SignJWT } from "jose"
 import { cookies } from "next/headers"
-import { redirect } from "next/navigation"
 import { NextRequest, NextResponse } from "next/server"
 import "server-only"
 
@@ -46,6 +45,7 @@ export const createSession = async (userId?: string) => {
 }
 export const verifySession = async () => {
     const userCookies = (await cookies()).get('session')?.value
+    
     if (!userCookies) {
         return
     }
@@ -73,5 +73,5 @@ export const updateCookies = async (request: NextRequest) => {
 }
 export const deleteSession = async () => {
     (await cookies()).delete('session')
-    redirect('/')
+    return true
 }

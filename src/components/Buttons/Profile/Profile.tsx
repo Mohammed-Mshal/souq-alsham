@@ -1,18 +1,37 @@
 'use client'
 import { useCurrentLocale, useI18n } from '@/locales/client';
+import { useAuthStore } from '@/providers/AuthProvider';
 import Image from 'next/image';
 import Link from 'next/link'
 import React from 'react'
+import { useRouter } from 'next/navigation';
+import { AuthServices } from '@/app/api/api_services/auth';
+import { useToast } from '@/providers/ToastProvider';
 
 export default function Profile() {
     const [isOpen, setIsOpen] = React.useState(false);
     const t = useI18n()
     const locale = useCurrentLocale()
-    const handleSignOut = () => {
+    const { setUser, user } = useAuthStore()
+    const router = useRouter()
+    const { addToast } = useToast()
+    const handleSignOut = async () => {
         // Delete session cookie
-        document.cookie = "session=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
-        // click outside close menu
-        setIsOpen(false);
+        try {
+            const resData = await AuthServices.logout()
+            if (resData.data.success) {
+                setIsOpen(false);
+                setUser(null);
+                addToast('Logged out successfully', 'success')
+                router.push('/auth/login');
+            }
+            else {
+                addToast(resData.data.message, 'error')
+            }
+        } catch (error) {
+            console.log(error)
+            addToast('Failed to logout', 'error')
+        }
     };
 
     return (
@@ -22,7 +41,7 @@ export default function Profile() {
                 className="flex items-center p-2 rounded-full hover:bg-black/80 dark:hover:bg-indigo-800 cursor-pointer outline-0"
             >
                 <Image
-                    src="/default-avatar.png"
+                    src={user?.image?.url || '/default-avatar.png'}
                     alt="Profile"
                     width={40}
                     height={40}

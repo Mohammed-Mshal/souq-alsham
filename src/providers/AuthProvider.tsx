@@ -7,6 +7,12 @@ interface User {
     id: string
     email: string
     name?: string
+    image?: {
+        id:string,
+        url:string,
+        altText:string,
+    } ,
+    isVerified: boolean
 }
 
 type AuthState = {

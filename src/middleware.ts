@@ -1,28 +1,26 @@
-import { NextRequest } from "next/server";
-import {  updateCookies } from "./libs/session";
-// import { cookies } from "next/headers";
+import { NextRequest, NextResponse } from "next/server";
+import {  decrypt, updateCookies } from "./libs/session";
 import { createI18nMiddleware } from "next-international/middleware";
+import { cookies } from "next/headers";
 export default async function middleware(request: NextRequest) {
-    // const authRoutes = '/auth'
-    // const protectedRoute = ['/']
-    // const currentPath = request.nextUrl.pathname
-    // const isProtectedRoute = protectedRoute.includes(currentPath)
-
-    // if (isProtectedRoute && !currentPath.startsWith(authRoutes)) {
-    //     const cookie = (await cookies()).get('session')?.value
-    //     const session = await decrypt(cookie)
-    //     if (!session?.userId) {
-    //         return NextResponse.redirect(new URL('/auth/login', request.nextUrl))
-    //     }
-    // }
-    // if (currentPath.startsWith(authRoutes)) {
-    //     const cookie = (await cookies()).get('session')?.value
-    //     const session = await decrypt(cookie)
-    //     if (session?.userId) {
-    //         return NextResponse.redirect(new URL('/home', request.nextUrl))
-    //     }
-    // }
-
+     const authRoutes = '/auth'
+     const protectedRoute = ['/']
+     const currentPath = request.nextUrl.pathname
+     const isProtectedRoute = protectedRoute.includes(currentPath)
+    if (isProtectedRoute && !currentPath.startsWith(authRoutes)) {
+         const cookie = (await cookies()).get('session')?.value
+         const session = await decrypt(cookie)
+         if (!session?.userId) {
+             return NextResponse.redirect(new URL('/auth/login', request.nextUrl))
+         }
+     }
+     if (currentPath.startsWith(authRoutes)) {
+         const cookie = (await cookies()).get('session')?.value
+         const session = await decrypt(cookie)
+         if (session?.userId) {
+             return NextResponse.redirect(new URL('/', request.nextUrl))
+         }
+     }
     await updateCookies(request)
     return I18nMiddleware(request)
 
@@ -35,5 +33,19 @@ const I18nMiddleware = createI18nMiddleware({
 })
 
 export const config = {
-    matcher: ['/((?!api|static|.*\\..*|_next|favicon.ico|robots.txt).*)']
+    matcher: [
+        '/((?!api|static|.*\\..*|_next|favicon.ico|robots.txt).*)',
+        '/auth/signup',
+        '/auth/login',
+        '/auth/forgot-password',
+        '/auth/reset-password', 
+        '/auth/verify-account'
+        ],
+    pages: {
+        signup: '/auth/signup',
+        login: '/auth/login',
+        forgotPassword: '/auth/forgot-password',
+        resetPassword: '/auth/reset-password',
+        verifyEmail: '/auth/verify-email',
+    }
 }

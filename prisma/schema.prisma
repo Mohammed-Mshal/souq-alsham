@@ -1,0 +1,99 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
+
+model Product {
+  id          String      @id @default(auto()) @map("_id") @db.ObjectId
+  title       String
+  price       Float
+  images      ImageType[]
+  thumbnail   ImageType
+  quantity    Int         @default(0)
+  rating      Float       @default(0.0)
+  brand       String
+  description String
+  reviews     Review[] // Relation to reviews
+  category    Category    @relation(fields: [categoryId], references: [id])
+  categoryId  String      @db.ObjectId
+  owner       User        @relation(fields: [ownerId], references: [id])
+  ownerId     String      @db.ObjectId
+  favorites   Favorite[] // Relation to favorites
+  createdAt   DateTime    @default(now())
+  updatedAt   DateTime    @updatedAt
+}
+
+model Category {
+  id        String    @id @default(auto()) @map("_id") @db.ObjectId
+  name      String
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+  Product   Product[]
+}
+
+model User {
+  id         String     @id @default(auto()) @map("_id") @db.ObjectId
+  email      String     @unique
+  name       String
+  phone      String     @unique
+  password   String
+  gender     String
+  phoneCode  String
+  isVerified Boolean    @default(false)
+  birthday   DateTime
+  Product    Product[]
+  image      ImageType?
+  createdAt  DateTime   @default(now())
+  updatedAt  DateTime   @updatedAt
+  favorites  Favorite[] // User's favorite products
+  Review     Review[]
+}
+
+model Favorite {
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  product   Product  @relation(fields: [productId], references: [id])
+  productId String   @db.ObjectId
+  user      User     @relation(fields: [userId], references: [id])
+  userId    String   @db.ObjectId
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@unique([productId, userId]) // Prevent duplicate favorites
+}
+
+model VerificationCode {
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  email     String   @unique
+  code      String
+  expiresAt DateTime
+  createdAt DateTime @default(now())
+  attempts  Int      @default(0) // Track verification attempts
+  isUsed    Boolean  @default(false) // Mark as used after successful verification
+
+  @@index([expiresAt]) // For efficient cleanup of expired codes
+}
+
+model Review {
+  id        String  @id @default(auto()) @map("_id") @db.ObjectId
+  Product   Product @relation(fields: [productId], references: [id])
+  productId String  @db.ObjectId
+  User      User    @relation(fields: [userId], references: [id])
+  userId    String  @db.ObjectId
+  rating    Int
+  comment   String
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@unique([productId, userId])
+}
+
+type ImageType {
+  url     String  @default("")
+  id      String  @default("")
+  altText String? // Optional alternative text for accessibility
+}

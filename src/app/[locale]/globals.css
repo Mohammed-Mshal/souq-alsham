@@ -12,3 +12,14 @@
     backdrop-filter: blur(12px);
   }
 }
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+  background-size: 20px !important;
+}
+
+html[dir="rtl"] input[type="date"]::-webkit-calendar-picker-indicator {
+  background-position: calc(100% - 20px) calc(50% - 2px);
+}
+html[dir="ltr"] input[type="date"]::-webkit-calendar-picker-indicator {
+  background-position: 20px calc(50% - 2px);
+}

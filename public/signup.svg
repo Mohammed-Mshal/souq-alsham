@@ -1,0 +1,91 @@
+<svg width="800" height="600" viewBox="0 0 800 600" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Enhanced Background with Animated Gradient -->
+  <defs>
+    <linearGradient id="bgGradient" x1="0" y1="0" x2="800" y2="600">
+      <stop offset="0%" stop-color="#4F46E5">
+        <animate attributeName="stop-color" values="#4F46E5;#6366F1;#4F46E5" dur="5s" repeatCount="indefinite"/>
+      </stop>
+      <stop offset="100%" stop-color="#6366F1">
+        <animate attributeName="stop-color" values="#6366F1;#4F46E5;#6366F1" dur="5s" repeatCount="indefinite"/>
+      </stop>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="600" fill="url(#bgGradient)"/>
+  
+  <!-- Enhanced Main Shopping Scene -->
+  <g transform="translate(400, 300)">
+    <!-- Animated Shopping Cart -->
+    <g transform="translate(-100, -50)">
+      <path d="M0 0 L80 0 L70 60 L10 60 Z" fill="#FFFFFF" opacity="0.9">
+        <animate attributeName="opacity" values="0.9;0.7;0.9" dur="3s" repeatCount="indefinite"/>
+        <animate attributeName="transform" values="translate(0,0); translate(0,-5); translate(0,0)" dur="2s" repeatCount="indefinite"/>
+      </path>
+      <circle cx="20" cy="70" r="10" fill="#FFFFFF">
+        <animate attributeName="r" values="10;11;10" dur="2s" repeatCount="indefinite"/>
+      </circle>
+      <circle cx="60" cy="70" r="10" fill="#FFFFFF">
+        <animate attributeName="r" values="10;11;10" dur="2s" repeatCount="indefinite" begin="0.5s"/>
+      </circle>
+    </g>
+    
+    <!-- Enhanced Products with More Animation -->
+    <g transform="translate(50, -50)">
+      <rect x="-30" y="-30" width="60" height="60" rx="5" fill="#FFFFFF" opacity="0.8">
+        <animate attributeName="transform" values="translate(0,0) rotate(0); translate(0,-10) rotate(5); translate(0,0) rotate(0)" dur="3s" repeatCount="indefinite"/>
+      </rect>
+      <line x1="-20" y1="-10" x2="20" y2="-10" stroke="#4F46E5" stroke-width="2">
+        <animate attributeName="stroke-width" values="2;3;2" dur="2s" repeatCount="indefinite"/>
+      </line>
+      <line x1="-20" y1="0" x2="20" y2="0" stroke="#4F46E5" stroke-width="2">
+        <animate attributeName="stroke-width" values="2;3;2" dur="2s" repeatCount="indefinite" begin="0.3s"/>
+      </line>
+      <line x1="-20" y1="10" x2="20" y2="10" stroke="#4F46E5" stroke-width="2">
+        <animate attributeName="stroke-width" values="2;3;2" dur="2s" repeatCount="indefinite" begin="0.6s"/>
+      </line>
+    </g>
+  </g>
+  
+  <!-- Enhanced Decorative Elements -->
+  <g>
+    <!-- Animated Price Tags -->
+    <g transform="translate(200, 150)">
+      <rect x="-30" y="-15" width="60" height="30" rx="5" fill="#FFFFFF" opacity="0.8">
+        <animate attributeName="transform" values="rotate(0) scale(1); rotate(5) scale(1.1); rotate(0) scale(1)" dur="3s" repeatCount="indefinite"/>
+      </rect>
+      <text x="0" y="5" text-anchor="middle" fill="#4F46E5" font-size="12" font-weight="bold">
+        <animate attributeName="font-size" values="12;14;12" dur="2s" repeatCount="indefinite"/>
+        $99
+      </text>
+    </g>
+    
+    <!-- Enhanced Shopping Icons -->
+    <g transform="translate(600, 200)">
+      <circle cx="0" cy="0" r="20" fill="#FFFFFF" opacity="0.6">
+        <animate attributeName="opacity" values="0.6;0.3;0.6" dur="2s" repeatCount="indefinite"/>
+        <animate attributeName="r" values="20;22;20" dur="2s" repeatCount="indefinite"/>
+      </circle>
+      <path d="M-10 -5 L10 -5 L8 5 L-8 5 Z" fill="#4F46E5">
+        <animate attributeName="transform" values="scale(1); scale(1.2); scale(1)" dur="2s" repeatCount="indefinite"/>
+      </path>
+    </g>
+  </g>
+  
+  <!-- Enhanced Animated Particles -->
+  <g>
+    <circle cx="150" cy="450" r="8" fill="#FFFFFF" opacity="0.4">
+      <animate attributeName="opacity" values="0.4;0.7;0.4" dur="2s" repeatCount="indefinite"/>
+      <animate attributeName="r" values="8;10;8" dur="2s" repeatCount="indefinite"/>
+      <animate attributeName="cy" values="450;445;450" dur="2s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="650" cy="350" r="8" fill="#FFFFFF" opacity="0.4">
+      <animate attributeName="opacity" values="0.4;0.7;0.4" dur="2s" repeatCount="indefinite" begin="0.5s"/>
+      <animate attributeName="r" values="8;10;8" dur="2s" repeatCount="indefinite" begin="0.5s"/>
+      <animate attributeName="cy" values="350;345;350" dur="2s" repeatCount="indefinite" begin="0.5s"/>
+    </circle>
+    <circle cx="400" cy="100" r="8" fill="#FFFFFF" opacity="0.4">
+      <animate attributeName="opacity" values="0.4;0.7;0.4" dur="2s" repeatCount="indefinite" begin="1s"/>
+      <animate attributeName="r" values="8;10;8" dur="2s" repeatCount="indefinite" begin="1s"/>
+      <animate attributeName="cy" values="100;95;100" dur="2s" repeatCount="indefinite" begin="1s"/>
+    </circle>
+  </g>
+</svg>

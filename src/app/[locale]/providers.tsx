@@ -5,6 +5,7 @@ import { ThemeProvider } from '@/providers/ThemeProvider';
 import { AuthProvider } from '@/providers/AuthProvider';
 import { verifySession } from '@/libs/session';
 import { cache } from 'react';
+import { ToastProvider } from '@/providers/ToastProvider';
 
 // Cache the getInfo function to avoid unnecessary recalculations
 const getInfo = cache(async () => {
@@ -30,9 +31,11 @@ export async function Providers({
     <AuthProvider initialSession={userInfo}>
       <ThemeProvider>
         <I18nProviderClient locale={locale}>
-          <MenuStoreProvider>
-            {children}
-          </MenuStoreProvider>
+          <ToastProvider>
+            <MenuStoreProvider>
+              {children}
+            </MenuStoreProvider>
+          </ToastProvider>
         </I18nProviderClient>
       </ThemeProvider>
     </AuthProvider>

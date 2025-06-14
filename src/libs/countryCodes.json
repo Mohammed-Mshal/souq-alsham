@@ -1,0 +1,86 @@
+[
+  {
+    "name": "Palestine",
+    "code": "+970",
+    "flag": "🇵🇸",
+    "flagUrl": "https://flagcdn.com/ps.svg"
+  },
+  {
+    "name": "Syria",
+    "code": "+963",
+    "flag": "🇸🇾",
+    "flagUrl": "https://flagcdn.com/sy.svg"
+  },
+  {
+    "name": "Turkey",
+    "code": "+90", 
+    "flag": "🇹🇷",
+    "flagUrl": "https://flagcdn.com/tr.svg"
+  },
+  {
+    "name": "Saudi Arabia",
+    "code": "+966",
+    "flag": "🇸🇦",
+    "flagUrl": "https://flagcdn.com/sa.svg"
+  },
+  {
+    "name": "United Arab Emirates",
+    "code": "+971",
+    "flag": "🇦🇪",
+    "flagUrl": "https://flagcdn.com/ae.svg"
+  },
+  {
+    "name": "Lebanon",
+    "code": "+961",
+    "flag": "🇱🇧",
+    "flagUrl": "https://flagcdn.com/lb.svg"
+  },
+  {
+    "name": "Jordan",
+    "code": "+962",
+    "flag": "🇯🇴",
+    "flagUrl": "https://flagcdn.com/jo.svg"
+  },
+  {
+    "name": "Iraq",
+    "code": "+964",
+    "flag": "🇮🇶",
+    "flagUrl": "https://flagcdn.com/iq.svg"
+  },
+  {
+    "name": "Egypt",
+    "code": "+20",
+    "flag": "🇪🇬",
+    "flagUrl": "https://flagcdn.com/eg.svg"
+  },
+  {
+    "name": "Kuwait",
+    "code": "+965",
+    "flag": "🇰🇼",
+    "flagUrl": "https://flagcdn.com/kw.svg"
+  },
+  {
+    "name": "Bahrain",
+    "code": "+973",
+    "flag": "🇧🇭",
+    "flagUrl": "https://flagcdn.com/bh.svg"
+  },
+  {
+    "name": "Qatar",
+    "code": "+974",
+    "flag": "🇶🇦",
+    "flagUrl": "https://flagcdn.com/qa.svg"
+  },
+  {
+    "name": "Oman",
+    "code": "+968",
+    "flag": "🇴🇲",
+    "flagUrl": "https://flagcdn.com/om.svg"
+  },
+  {
+    "name": "Yemen",
+    "code": "+967",
+    "flag": "🇾🇪",
+    "flagUrl": "https://flagcdn.com/ye.svg"
+  }
+]

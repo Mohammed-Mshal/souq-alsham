@@ -8,15 +8,20 @@ const nextConfig: NextConfig = {
     },
   },
   images: {
-    dangerouslyAllowSVG:true,
+    dangerouslyAllowSVG: true,
     contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
     remotePatterns: [
       {
         protocol: "https",
         hostname: "ik.imagekit.io",
         port: "",
-      
+
       },
+      {
+        protocol: "https",
+        hostname: "flagcdn.com",
+        port: "",
+      }
     ],
   },
 };
