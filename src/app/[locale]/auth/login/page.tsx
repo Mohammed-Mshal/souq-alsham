@@ -17,7 +17,7 @@ export default function Login() {
   })
   const [showPassword, setShowPassword] = useState(false)
   const [isLoading, setIsLoading] = useState(false)
-  const {setUser}=useAuthStore()
+  const { setUser } = useAuthStore()
   const { addToast } = useToast()
   const router = useRouter()
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -93,7 +93,7 @@ export default function Login() {
                       autoComplete="email"
                       placeholder="Enter your email"
                       className="block w-full rounded-md border-0 px-3 py-2 
-                    text-gray-900 dark:text-gray-800 dark:bg-white/80
+                    text-gray-900 dark:text-gray-800
                     dark:bg-white bg-indigo-100
                     ring-1 ring-inset ring-gray-300 dark:ring-gray-700
                     placeholder:text-gray-400 dark:placeholder:text-gray-500

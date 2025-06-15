@@ -23,7 +23,7 @@ export default function Profile() {
                 setIsOpen(false);
                 setUser(null);
                 addToast('Logged out successfully', 'success')
-                router.push('/auth/login');
+                router.refresh();
             }
             else {
                 addToast(resData.data.message, 'error')
