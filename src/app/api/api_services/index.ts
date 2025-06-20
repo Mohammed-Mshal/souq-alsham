@@ -22,8 +22,8 @@ const ApiService = {
             }
         })
     },
-    get(resource: string, pk: string | number, authRequired = false) {
-        return axios.get(`${resource}/${pk}`, {
+    get(resource: string, pk?: string | number, authRequired = false) {
+        return axios.get(`${resource}/${pk ? pk : ''}`, {
             headers: {
                 Authorization: authRequired ? `Bearer ${localStorage.getItem('token')}` : null
             }

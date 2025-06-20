@@ -65,8 +65,8 @@ export default function BannerHome() {
                 >
                     <defs>
                         <linearGradient id="waveGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                            <stop offset="0%" style={{ stopColor: `${themeStore.theme === 'dark' ? 'black' : 'oklch(92.8% .006 264.531)'}`,  }} />
-                            <stop offset="100%" style={{ stopColor: `${themeStore.theme === 'dark' ? 'black' : 'oklch(92.8% .006 264.531)'}`, }} />
+                            <stop offset="0%" style={{ stopColor: `${themeStore.theme === 'dark' ? '#191919' : 'oklch(92.8% .006 264.531)'}`,  }} />
+                            <stop offset="100%" style={{ stopColor: `${themeStore.theme === 'dark' ? '#191919' : 'oklch(92.8% .006 264.531)'}`, }} />
                         </linearGradient>
                     </defs>
                     <path

@@ -88,7 +88,7 @@ export default function Navbar() {
     const authState = useAuthStore(state => state.user)
     const [open, setOpen] = useState(false)
     return (
-        <div className="bg-white dark:bg-black sticky md:top-7 top-0 z-10">
+        <div className="bg-white dark:bg-black sticky md:top-14 top-0 z-10">
             {/* Mobile menu */}
             <Dialog open={open} onClose={setOpen} className="relative z-50 lg:hidden">
                 <DialogBackdrop
@@ -335,11 +335,13 @@ export default function Navbar() {
                                         <span className="sr-only">items in cart, view bag</span>
                                     </Link>
                                 </div>
-                                {
-                                    /* Profile */
-                                    authState &&
-                                    <Profile />
-                                }
+                                <div className='flex md:hidden'>
+                                    {
+                                        /* Profile */
+                                        authState &&
+                                        <Profile />
+                                    }
+                                </div>
                             </div>
                         </div>
                     </div>

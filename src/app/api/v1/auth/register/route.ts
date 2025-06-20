@@ -197,7 +197,8 @@ export async function POST(request: NextRequest) {
                 phone: true,
                 phoneCode: true,
                 image: true,
-                createdAt: true
+                isVerified:true,
+                createdAt: true,
             }
         });
 

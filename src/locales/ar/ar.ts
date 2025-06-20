@@ -26,8 +26,9 @@ export default {
     },
     profileMenu: {
         'my_profile': 'الملف الشخصي',
-        'settings': 'الأعدادات',
+        'settings': 'الإعدادات',
         'signout': 'تسجيل الخروج',
+        "verifyAccount": 'التحقق من الحساب'
     },
     banner: {
         'New_Products': 'المنتجات الجديدة',

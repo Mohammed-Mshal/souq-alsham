@@ -7,6 +7,7 @@ import React from 'react'
 import { useRouter } from 'next/navigation';
 import { AuthServices } from '@/app/api/api_services/auth';
 import { useToast } from '@/providers/ToastProvider';
+import { FiInfo } from 'react-icons/fi';
 
 export default function Profile() {
     const [isOpen, setIsOpen] = React.useState(false);
@@ -57,6 +58,15 @@ export default function Profile() {
                 >
                     {t('profileMenu.my_profile')}
                 </Link>
+                {
+                    !user?.isVerified &&
+                    <Link
+                        href="/auth/verify-account"
+                        className="flex items-center justify-between px-4 py-2 text-sm text-gray-700 dark:text-white/80 hover:text-white hover:bg-indigo-800 dark:hover:bg-indigo-800"
+                    >
+                        {t('profileMenu.verifyAccount')} <FiInfo className='text-yellow-600' />
+                    </Link>
+                }
                 <Link
                     href="/settings"
                     className="block px-4 py-2 text-sm text-gray-700 dark:text-white/80 hover:text-white hover:bg-indigo-800 dark:hover:bg-indigo-800"

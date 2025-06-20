@@ -38,7 +38,7 @@ export default function Signup() {
   const [showPassword, setShowPassword] = useState(false)
   const { addToast } = useToast()
   const router = useRouter()
-  const {setUser}=useAuthStore()
+  const { setUser } = useAuthStore()
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const handleSubmit = async (e: any) => {
     try {
@@ -54,7 +54,7 @@ export default function Signup() {
       if (dataRes.data.success) {
         addToast('Signup successful', 'success');
         setUser(dataRes.data.data.user)
-        router.push('/');
+        router.push('/auth/verify-account');
       }
     } catch (error) {
       if (error instanceof AxiosError) {
@@ -73,6 +73,7 @@ export default function Signup() {
     }
 
   }
+ 
   useEffect(() => {
     if (data.image) {
       const reader = new FileReader()

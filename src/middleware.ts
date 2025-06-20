@@ -3,18 +3,18 @@ import {  decrypt, updateCookies } from "./libs/session";
 import { createI18nMiddleware } from "next-international/middleware";
 import { cookies } from "next/headers";
 export default async function middleware(request: NextRequest) {
-     const authRoutes = '/auth'
+     const authRoutes = ['/auth/login','/auth/register']
      const protectedRoute = ['/']
      const currentPath = request.nextUrl.pathname
      const isProtectedRoute = protectedRoute.includes(currentPath)
-    if (isProtectedRoute && !currentPath.startsWith(authRoutes)) {
+    if (isProtectedRoute && !authRoutes.includes(currentPath)) {
          const cookie = (await cookies()).get('session')?.value
          const session = await decrypt(cookie)
          if (!session?.userId) {
              return NextResponse.redirect(new URL('/auth/login', request.nextUrl))
          }
      }
-     if (currentPath.startsWith(authRoutes)) {
+     if (authRoutes.includes(currentPath)) {
          const cookie = (await cookies()).get('session')?.value
          const session = await decrypt(cookie)
          if (session?.userId) {

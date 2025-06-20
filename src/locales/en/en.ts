@@ -29,6 +29,7 @@ export default {
         'my_profile': 'My Profile',
         'settings': 'Settings',
         'signout': 'Sign Out',
+        "verifyAccount": 'Verify Account'
     },
     banner: {
         'New_Products': 'New Products'

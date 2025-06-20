@@ -8,7 +8,7 @@ const prisma = new PrismaClient()
 export async function POST(request: NextRequest) {
     return RouteWrapper(async () => {
         await prisma.$connect();
-        
+
         const requestBody = await request.json();
         const email = requestBody.email || null;
         const password = requestBody.password || null;
@@ -37,7 +37,7 @@ export async function POST(request: NextRequest) {
         const userInfo = await prisma.user.findFirst({
             where: {
                 email
-            }
+            },
         })
         if (!userInfo) {
             return NextResponse.json({
@@ -58,13 +58,22 @@ export async function POST(request: NextRequest) {
                 status: 404
             })
         }
-         await createSession(userInfo.id)
+        await createSession(userInfo.id)
         // Return success response with user data
         return NextResponse.json({
             success: true,
             message: "Login successful! Welcome Back.",
             data: {
-                user: userInfo,
+                user: {
+                    id: userInfo.id,
+                    email: userInfo.email,
+                    gender: userInfo.gender,
+                    image: userInfo.image,
+                    name: userInfo.name,
+                    phone: userInfo.phone,
+                    isVerified: userInfo.isVerified,
+                    birthday: userInfo.birthday,
+                },
             }
         }, {
             status: 201 // Created status code

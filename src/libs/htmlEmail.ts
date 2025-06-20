@@ -2,14 +2,16 @@ interface EmailTemplateProps {
     title: string;
     message: string;
     code: string,
-    linkSite:string
+    linkSite:string,
+    name:string
 }
 
 export function generateEmailTemplate({
     title,
     message,
     code,
-    linkSite
+    linkSite,
+    name
 }: EmailTemplateProps): string {
     return `
    <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -581,10 +583,11 @@ export function generateEmailTemplate({
                                     style="
                                       padding: 0;
                                       margin: 0;
-                                      text-align-center
+                                      text-align-center;
+                                      font-size:20px;
+                                      color:oklch(58.5% 0.233 277.117) ;
                                     "
                                   >
-                                    HEllo
                                     ${title}
                                   </td>
                                 </tr>
@@ -621,7 +624,7 @@ export function generateEmailTemplate({
                             <td
                               align="center"
                               valign="top"
-                              style="padding: 0; margin: 0; width: 520px"
+                              style="padding: 0; margin: 0; width: 580px"
                             >
                               <table
                                 cellpadding="0"
@@ -680,6 +683,7 @@ export function generateEmailTemplate({
                                         letter-spacing: 0;
                                         color: #2d3142;
                                         font-size: 18px;
+                                        text-align:center;
                                       "
                                     >
                                       ${message}
@@ -788,6 +792,7 @@ export function generateEmailTemplate({
                                         font-weight: bold;
                                         line-height: 43.2px;
                                         color: #ffffff;
+                                        text-align:center;
                                       "
                                     >
                                       ${code}
@@ -1102,7 +1107,7 @@ export function generateEmailTemplate({
                                               font-size: 16px;
                                             "
                                           >
-                                            This link expire in 24 hours. If you
+                                            This link expire in 10 Minutes . If you
                                             have questions,
                                             <a
                                               target="_blank"
@@ -1347,18 +1352,6 @@ export function generateEmailTemplate({
                                         "
                                         href=""
                                       ></a>
-                                      •
-                                      <a
-                                        target="_blank"
-                                        style="
-                                          mso-line-height-rule: exactly;
-                                          text-decoration: none;
-                                          color: #2d3142;
-                                          font-size: 14px;
-                                        "
-                                        href=""
-                                        >Unsubscribe</a
-                                      >
                                     </p>
                                   </td>
                                 </tr>
@@ -1381,27 +1374,7 @@ export function generateEmailTemplate({
                                         color: #2d3142;
                                         font-size: 14px;
                                       "
-                                    >
-                                      <a
-                                        target="_blank"
-                                        href=""
-                                        style="
-                                          mso-line-height-rule: exactly;
-                                          text-decoration: underline;
-                                          color: #2d3142;
-                                          font-size: 14px;
-                                        "
-                                      ></a
-                                      >Copyright © 2023&nbsp;Company<a
-                                        target="_blank"
-                                        href=""
-                                        style="
-                                          mso-line-height-rule: exactly;
-                                          text-decoration: underline;
-                                          color: #2d3142;
-                                          font-size: 14px;
-                                        "
-                                      ></a>
+                                    >Copyright © ${new Date().getFullYear()}&nbsp; Souq Al-Sham
                                     </p>
                                   </td>
                                 </tr>
